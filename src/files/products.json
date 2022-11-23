@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "nombre": "Rodolfo Jose",
+    "descripcion": "Juego de deportes",
+    "codigo": "ZNVTW18097",
+    "foto": "https://culturageek.com.ar/wp-content/uploads/2022/07/3999947-mj1.jpeg",
+    "precio": "5000",
+    "stock": "66",
+    "timestamp": "22/11/2022, 16:19:32",
+    "id": 1
+  }
+]

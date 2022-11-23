@@ -16,7 +16,7 @@ class ProductService {
     }
 
     saveProduct = async(product) => {
-        product.timestamp = new Date(Date.now()).toLocaleString();
+        product.timestamp = new Date(Date.now());
         return await this.productsDao.save(product);
     }
 

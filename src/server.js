@@ -10,6 +10,10 @@ import productService from './services/products.service.js';
 import cartService from './services/carts.service.js';
 import ProductsDTO from './dtos/products.dto.js';
 
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from './graphQL/typeDefs.js';
+import resolvers from './graphQL/resolvers.js';
+
 const app = express()
 const httpServer = createServer(app);
 const io = new Server(httpServer);
@@ -19,8 +23,15 @@ app.use('/', viewsRoutes);
 app.use('/api/productos', productsRoutes);
 app.use('/api/carrito', cartsRoutes);
 
-app.use(express.urlencoded({ extended: true }));
+const aServer = new ApolloServer({
+    typeDefs,
+    resolvers
+});
 
+await aServer.start();
+aServer.applyMiddleware({app});
+
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static( __dirname + '/views'));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");

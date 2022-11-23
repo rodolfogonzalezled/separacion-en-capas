@@ -15,7 +15,7 @@ class CartService {
     }
 
     saveCart = async(cart) => {
-        cart.timestamp = new Date(Date.now()).toLocaleString();
+        cart.timestamp = new Date(Date.now());
         return await this.cartsDao.save(cart);
     }
 
